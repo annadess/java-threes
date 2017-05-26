@@ -23,9 +23,14 @@ public class HighScoreController {
     private GridPane gridPane;
 
     public void loadHighScores(){
+
     	for(File jsonFile : PersistencyManager.getAllSaveFiles()){
     		gameSessions.add(JsonManager.getGameSessionFromJson(PersistencyManager.openFromFile(jsonFile)));
     		names.add(jsonFile.getName().replaceAll(".json", ""));
+    	}
+    	
+    	for(GameSession iterateGameSession : gameSessions){
+    		scoresUnordered.add(GameViewController.recalculateScore(iterateGameSession.getGameStateList(), iterateGameSession.getGameStateList().size()));
     	}
     	
     	List<Integer> scoresOrdered = new LinkedList<Integer>();
@@ -33,6 +38,7 @@ public class HighScoreController {
     	scoresOrdered.sort(new Comparator<Integer>() {
 			@Override
 			public int compare(Integer firstNum, Integer secondNum) {
+				
 				return firstNum.compareTo(secondNum)*-1;
 			}
 		});
@@ -46,7 +52,6 @@ public class HighScoreController {
 			if(rowIndex > scoresOrdered.size()-1){
 				continue;
 			}
-			
 			if(GridPane.getColumnIndex(child) == null){
 				Integer position = rowIndex+1;
 				StringBuilder positionString = new StringBuilder();
