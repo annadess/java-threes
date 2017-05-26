@@ -28,13 +28,6 @@ public class HighScoreController {
     		names.add(jsonFile.getName().replaceAll(".json", ""));
     	}
     	
-    	for(GameSession iterateGameSession : gameSessions){
-    		scoresUnordered.add(GameViewController.recalculateScore(iterateGameSession.getGameStateList(), iterateGameSession.getGameStateList().size()));
-    		if (iterateGameSession.getPlayerName() != null) {
-    			names.set(gameSessions.indexOf(iterateGameSession), iterateGameSession.getPlayerName());
-			}
-    	}
-    	
     	List<Integer> scoresOrdered = new LinkedList<Integer>();
     	scoresOrdered.addAll(scoresUnordered);
     	scoresOrdered.sort(new Comparator<Integer>() {
