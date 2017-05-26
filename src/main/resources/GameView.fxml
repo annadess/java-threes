@@ -48,6 +48,11 @@
                       </Menu>
                       <Menu text="_Game">
                         <items>
+                              <MenuItem mnemonicParsing="false" onAction="#setPlayerName" text="Set _Player Name">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
                               <MenuItem onAction="#undoButton" text="_Undo">
                                  <accelerator>
                                     <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />

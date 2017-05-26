@@ -151,6 +151,24 @@ public class GameViewController {
 			updateLabels();
 		}
 	}
+	
+	@FXML
+	void setPlayerName(ActionEvent event){
+		try {
+			ClassLoader classLoader = getClass().getClassLoader();
+			FXMLLoader loader = new FXMLLoader(classLoader.getResource("SetNameView.fxml"));
+			Pane setNameViewPane = (Pane) loader.load();
+			Scene setNameViewScene = new Scene(setNameViewPane);
+			Stage setNameStage = new Stage();
+			setNameStage.setTitle("Set new player name");
+			setNameStage.setScene(setNameViewScene);
+			setNameStage.setResizable(false);
+			setNameStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
     
 	private void processLoading(File loadFile) {
     	String jsonInfo = PersistencyManager.openFromFile(loadFile);
