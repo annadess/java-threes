@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>hu.unideb.inf</groupId>
   <artifactId>java-threes</artifactId>
-  <version>0.0.5-beta3</version>
+  <version>0.0.6-alpha1</version>
   <description>Java Threes is a simple copy of the original iOS game "Threes".</description>
   <developers>
   	<developer>
@@ -61,6 +61,19 @@
 	          <source>1.8</source>
 	          <target>1.8</target>
 	        </configuration>
+      	</plugin>
+      	<plugin>
+      		<groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-shade-plugin</artifactId>
+		    <version>3.0.0</version>
+		    <executions>
+		    	<execution>
+		    		<phase>package</phase>
+		    		<goals>
+		    			<goal>shade</goal>
+		    		</goals>
+		    	</execution>
+		    </executions>
       	</plugin>
   	</plugins>
   </build>
