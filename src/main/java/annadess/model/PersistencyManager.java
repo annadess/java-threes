@@ -13,8 +13,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class PersistencyManager {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PersistencyManager.class);
 	public static final File saveFolder = new File(new StringBuilder().append(System.getProperty("user.home")).append("/saves").toString());
 	
 	public static String openFromFile(File inputFile){
@@ -22,9 +27,11 @@ public class PersistencyManager {
 		try (BufferedReader reader =new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));) {
 			returnString = reader.readLine();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			logger.debug("File user tried to load can't be found.");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.debug("File user tried to load couldn't be loaded.");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 		return returnString;
 	}
@@ -33,7 +40,8 @@ public class PersistencyManager {
 		try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8"));) {
 			writer.write(outputInfo);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.debug("File user tried to save couldn't be written.");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
 	

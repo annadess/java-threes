@@ -1,4 +1,4 @@
-package annadess;
+package annadess.view;
 
 import java.io.File;
 import java.util.Comparator;

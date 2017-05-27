@@ -1,11 +1,16 @@
-package annadess;
+package annadess.view;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import annadess.GameStateGenerator;
 import annadess.GameStateOperator;
+import annadess.GameStateOperatorPrerequisites;
 import annadess.model.GameSession;
 import annadess.model.GameState;
 import annadess.model.JsonManager;
@@ -23,6 +28,7 @@ import javafx.stage.Stage;
 
 public class GameViewController {
 
+	private static final Logger logger = LoggerFactory.getLogger(GameViewController.class);
 	private Stage stage;
 	private GameSession currentGameSession;
 	private GameState currentGameState;
@@ -135,8 +141,8 @@ public class GameViewController {
 			highScoreStage.show();
 			((HighScoreController)loader.getController()).loadHighScores();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.debug("Can't find/load \"HighscoreView.fxml\" FXML file.");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
 	
@@ -162,8 +168,8 @@ public class GameViewController {
 			this.score = recalculateScore(gameSessionList,sessionLength);
 			updateLabels();
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Not Valid File");
+			logger.debug("Something went wrong while processing the JSON savefile");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
@@ -208,7 +214,8 @@ public class GameViewController {
     	try {
 			currentGameSession = new GameSession(currentGameState.clone());
 		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
+			logger.debug("Failed to clone a Game State object while trying to create a new game");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
     	score = 0;
     	for(int i=0;i<4;i++){
@@ -222,7 +229,8 @@ public class GameViewController {
     	try {
 			currentGameSession.getGameStateList().add(currentGameState.clone());
 		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
+			logger.debug("Failed to clone a Game State object while trying to update current Game Session");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
     

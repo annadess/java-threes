@@ -2,7 +2,10 @@ package annadess.view;
 
 import java.io.IOException;
 
-import annadess.GameViewController;
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +16,10 @@ import javafx.stage.Stage;
 
 public class MainView extends Application {
 
+	private static final Logger logger = LoggerFactory.getLogger(MainView.class);
+	
 	@Override
-	public void start(Stage primaryStage) {   
-
+	public void start(Stage primaryStage) {
 		primaryStage.setTitle("JavaThrees");
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
@@ -40,15 +44,14 @@ public class MainView extends Application {
 			gameViewScene.getStylesheets().add(classLoader.getResource("DefaultStyle.css").toExternalForm());
 			primaryStage.setScene(gameViewScene);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.debug("Can't find/load \"GameView.fxml\" FXML file.");
+			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
-		
 		primaryStage.show();
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
 
 }

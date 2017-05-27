@@ -26,10 +26,10 @@ Maven-specific:
 Documentation:
 - [x] Checkstyle XML
 - [ ] ApiDoc (excluding GUI and JUnit tests)
-- [x] Package informations (`package-info.java`)
+- [ ] Package informations (`package-info.java`)
 
 Logging:
-- [ ] Logging
+- [x] Logging
 
 Unit testing:
 - [ ] JUnit tests
