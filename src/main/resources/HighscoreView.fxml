@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane cacheShape="false" centerShape="false" maxHeight="400.0" maxWidth="300.0" prefHeight="400.0" prefWidth="300.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annadess.HighScoreController">
+<AnchorPane cacheShape="false" centerShape="false" maxHeight="400.0" maxWidth="300.0" prefHeight="400.0" prefWidth="300.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annadess.view.HighScoreController">
    <children>
       <GridPane fx:id="gridPane" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>

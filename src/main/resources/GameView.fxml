@@ -61,11 +61,6 @@
                               </MenuItem>
                         </items>
                       </Menu>
-                      <Menu text="_Help">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                        </items>
-                      </Menu>
                     </menus>
                   </MenuBar>
                </top>

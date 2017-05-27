@@ -1,6 +1,7 @@
 package annadess.view;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,13 +36,7 @@ public class HighScoreController {
     	
     	List<Integer> scoresOrdered = new LinkedList<Integer>();
     	scoresOrdered.addAll(scoresUnordered);
-    	scoresOrdered.sort(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer firstNum, Integer secondNum) {
-				
-				return firstNum.compareTo(secondNum)*-1;
-			}
-		});
+    	Collections.sort(scoresOrdered, Collections.reverseOrder());
     	
 		for (Node child : gridPane.getChildren()) {
 			Integer rowIndex = GridPane.getRowIndex(child);
