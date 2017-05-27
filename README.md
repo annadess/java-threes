@@ -24,9 +24,9 @@ Maven-specific:
 - [x] `maven-checkstyle-plugin`
 
 Documentation:
-- [x] Checkstyle XML - 
-- [ ] ApiDoc (excluding GUI and JUnit tests) - 
-- [x] Package informations (`package-info.java`) - 
+- [x] Checkstyle XML
+- [ ] ApiDoc (excluding GUI and JUnit tests)
+- [x] Package informations (`package-info.java`)
 
 Logging:
 - [ ] Logging
