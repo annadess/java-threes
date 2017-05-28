@@ -18,12 +18,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PersistencyManager {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(PersistencyManager.class);
-	public static final File saveFolder = new File(new StringBuilder().append(System.getProperty("user.home")).append("/saves").toString());
-	
-	public static String openFromFile(File inputFile){
-		try (BufferedReader reader =new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));) {
+	public static final File saveFolder = new File(
+			new StringBuilder().append(System.getProperty("user.home")).append("/saves").toString());
+
+	public static String openFromFile(File inputFile) {
+		try (BufferedReader reader = new BufferedReader(
+				new InputStreamReader(new FileInputStream(inputFile), "UTF-8"));) {
 			return reader.readLine();
 		} catch (FileNotFoundException e) {
 			logger.debug("File user tried to load can't be found.");
@@ -35,21 +37,23 @@ public class PersistencyManager {
 			return null;
 		}
 	}
-	
-	public static void saveToFile(File outputFile, String outputInfo){
-		try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8"));) {
+
+	public static void saveToFile(File outputFile, String outputInfo) {
+		try (BufferedWriter writer = new BufferedWriter(
+				new OutputStreamWriter(new FileOutputStream(outputFile), "UTF-8"));) {
 			writer.write(outputInfo);
 		} catch (IOException e) {
 			logger.debug("File user tried to save couldn't be written.");
 			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
-	
-	public static void createSaveDir(){
+
+	public static void createSaveDir() {
 		saveFolder.mkdir();
 	}
-	
-	public static List<File> getAllSaveFiles(){
-		return Arrays.asList(saveFolder.listFiles()).stream().filter(t-> t.toString().endsWith(".json")).collect(Collectors.toList());
+
+	public static List<File> getAllSaveFiles() {
+		return Arrays.asList(saveFolder.listFiles()).stream().filter(t -> t.toString().endsWith(".json"))
+				.collect(Collectors.toList());
 	}
 }

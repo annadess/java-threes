@@ -5,8 +5,8 @@ import java.util.List;
 
 public class GameSession {
 
-	private List<GameState> gameStateList = new LinkedList<GameState>(); 
-	
+	private List<GameState> gameStateList = new LinkedList<GameState>();
+
 	public List<GameState> getGameStateList() {
 		return gameStateList;
 	}
@@ -15,7 +15,7 @@ public class GameSession {
 		this.gameStateList = gameSessionList;
 	}
 
-	public GameSession(GameState firstGameState){
+	public GameSession(GameState firstGameState) {
 		this.gameStateList.add(firstGameState);
 	}
 
@@ -23,5 +23,5 @@ public class GameSession {
 		super();
 		this.gameStateList = gameSessionList;
 	}
-	
+
 }

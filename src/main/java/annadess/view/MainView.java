@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 public class MainView extends Application {
 
 	private static final Logger logger = LoggerFactory.getLogger(MainView.class);
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("JavaThrees");
@@ -41,24 +41,32 @@ public class MainView extends Application {
 		Scene gameViewScene = new Scene(gameViewPane);
 		GameViewController gameViewController = (GameViewController) gameViewLoader.getController();
 		gameViewController.init(primaryStage);
-		handleOnKeyPressedFunction(gameViewScene,gameViewController);
+		handleOnKeyPressedFunction(gameViewScene, gameViewController);
 		gameViewScene.getStylesheets().add(classLoader.getResource("DefaultStyle.css").toExternalForm());
 		primaryStage.setScene(gameViewScene);
 	}
 
 	private void handleOnKeyPressedFunction(Scene gameViewScene, GameViewController controller) {
 		gameViewScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                switch (event.getCode()) {
-                    case UP:    controller.upButton(null); break;
-                    case DOWN:  controller.downButton(null); break;
-                    case LEFT:  controller.leftButton(null); break;
-                    case RIGHT: controller.rightButton(null); break;
+			@Override
+			public void handle(KeyEvent event) {
+				switch (event.getCode()) {
+				case UP:
+					controller.upButton(null);
+					break;
+				case DOWN:
+					controller.downButton(null);
+					break;
+				case LEFT:
+					controller.leftButton(null);
+					break;
+				case RIGHT:
+					controller.rightButton(null);
+					break;
 				default:
 					break;
-                }
-            }
-        });
+				}
+			}
+		});
 	}
 }
