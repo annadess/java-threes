@@ -21,7 +21,7 @@ public class GameStateOperator {
 	 */
 	public static void moveRight(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=2;i>=0;i--){
@@ -46,10 +46,10 @@ public class GameStateOperator {
 			randomIndex = randGen.nextInt(4);
 		}
 		
-		tempMatrix[randomIndex][0] = gs.getNextValue();
+		tempMatrix[randomIndex][0] = gs.getNextElement();
 		
-		gs.setNextValue(GameStateGenerator.generateNextValue(gs));
-		gs.setArrayValue(tempMatrix);
+		gs.setNextElement(GameStateGenerator.generateNextElement(gs));
+		gs.setBoardElements(tempMatrix);
 		
 	}
 	
@@ -60,7 +60,7 @@ public class GameStateOperator {
 	 */
 	public static void moveLeft(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=1;i<4;i++){
@@ -85,10 +85,10 @@ public class GameStateOperator {
 			randomIndex = randGen.nextInt(4);
 		}
 		
-		tempMatrix[randomIndex][3] = gs.getNextValue();
+		tempMatrix[randomIndex][3] = gs.getNextElement();
 		
-		gs.setNextValue(GameStateGenerator.generateNextValue(gs));
-		gs.setArrayValue(tempMatrix);
+		gs.setNextElement(GameStateGenerator.generateNextElement(gs));
+		gs.setBoardElements(tempMatrix);
 		
 	}
 	
@@ -99,7 +99,7 @@ public class GameStateOperator {
 	 */
 	public static void moveDown(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=2;i>=0;i--){
@@ -124,10 +124,10 @@ public class GameStateOperator {
 			randomIndex = randGen.nextInt(4);
 		}
 		
-		tempMatrix[0][randomIndex] = gs.getNextValue();
+		tempMatrix[0][randomIndex] = gs.getNextElement();
 		
-		gs.setNextValue(GameStateGenerator.generateNextValue(gs));
-		gs.setArrayValue(tempMatrix);
+		gs.setNextElement(GameStateGenerator.generateNextElement(gs));
+		gs.setBoardElements(tempMatrix);
 		
 	}
 	
@@ -138,7 +138,7 @@ public class GameStateOperator {
 	 */
 	public static void moveUp(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=1;i<4;i++){
@@ -163,10 +163,10 @@ public class GameStateOperator {
 			randomIndex = randGen.nextInt(4);
 		}
 		
-		tempMatrix[3][randomIndex] = gs.getNextValue();
+		tempMatrix[3][randomIndex] = gs.getNextElement();
 		
-		gs.setNextValue(GameStateGenerator.generateNextValue(gs));
-		gs.setArrayValue(tempMatrix);
+		gs.setNextElement(GameStateGenerator.generateNextElement(gs));
+		gs.setBoardElements(tempMatrix);
 		
 	}
 	

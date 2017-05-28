@@ -15,6 +15,7 @@ import annadess.model.GameSession;
 import annadess.model.GameState;
 import annadess.model.JsonManager;
 import annadess.model.PersistencyManager;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +54,7 @@ public class GameViewController {
     @FXML
     public void downButton(ActionEvent event) {
     	if(GameStateOperatorPrerequisites.canMoveDown(currentGameState)){
-    		score = score.intValue() + currentGameState.getNextValue();
+    		score = score.intValue() + currentGameState.getNextElement();
         	GameStateOperator.moveDown(currentGameState);
         	updateGameSession();
         	updateLabels();
@@ -63,7 +64,7 @@ public class GameViewController {
     @FXML
     public void leftButton(ActionEvent event) {
     	if(GameStateOperatorPrerequisites.canMoveLeft(currentGameState)){
-        	score = score.intValue() + currentGameState.getNextValue();
+        	score = score.intValue() + currentGameState.getNextElement();
 	    	GameStateOperator.moveLeft(currentGameState);
 	    	updateGameSession();
 	    	updateLabels();
@@ -73,7 +74,7 @@ public class GameViewController {
     @FXML
     public void rightButton(ActionEvent event) {
     	if(GameStateOperatorPrerequisites.canMoveRight(currentGameState)){
-    		score = score.intValue() + currentGameState.getNextValue();
+    		score = score.intValue() + currentGameState.getNextElement();
 	    	GameStateOperator.moveRight(currentGameState);
 	    	updateGameSession();
 	    	updateLabels();
@@ -83,7 +84,7 @@ public class GameViewController {
 	@FXML
     public void upButton(ActionEvent event) {
     	if(GameStateOperatorPrerequisites.canMoveUp(currentGameState)){
-			score = score.intValue() + currentGameState.getNextValue();
+			score = score.intValue() + currentGameState.getNextElement();
 	    	GameStateOperator.moveUp(currentGameState);
 	    	updateGameSession();
 	    	updateLabels();
@@ -101,11 +102,7 @@ public class GameViewController {
     void loadButton(ActionEvent event) {
     	PersistencyManager.createSaveDir();
     	FileChooser fileChooser = new FileChooser();
-    	fileChooser.setInitialDirectory(PersistencyManager.saveFolder);
-    	fileChooser.getExtensionFilters().addAll(
-    			new FileChooser.ExtensionFilter("JSON Files", "*.json"),
-    			new FileChooser.ExtensionFilter("All Files", "*")
-    			);
+    	configureFileChooser(fileChooser);
     	File loadFile = fileChooser.showOpenDialog(stage);
     	if (loadFile!=null){
     		processLoading(loadFile);
@@ -116,11 +113,7 @@ public class GameViewController {
     void saveButton(ActionEvent event) {
 		PersistencyManager.createSaveDir();
 		FileChooser fileChooser = new FileChooser();
-    	fileChooser.setInitialDirectory(PersistencyManager.saveFolder);
-    	fileChooser.getExtensionFilters().addAll(
-    		new FileChooser.ExtensionFilter("JSON Files", "*.json"),
-    		new FileChooser.ExtensionFilter("All Files", "*")
-    		);
+		configureFileChooser(fileChooser);
     	File saveFile = fileChooser.showSaveDialog(stage);
     	if (saveFile!=null){
     		PersistencyManager.saveToFile(saveFile, JsonManager.getJsonFromGameSession(currentGameSession));
@@ -128,24 +121,20 @@ public class GameViewController {
     }
 	
 	@FXML
+	void exitButton(ActionEvent event){
+		Platform.exit();
+	}
+	
+	@FXML
 	void showHighScore(ActionEvent event){
 		try {
-			ClassLoader classLoader = getClass().getClassLoader();
-			FXMLLoader loader = new FXMLLoader(classLoader.getResource("HighscoreView.fxml"));
-			Pane highScoreViewPane = (Pane) loader.load();
-			Scene highScoreViewScene = new Scene(highScoreViewPane);
-			Stage highScoreStage = new Stage();
-			highScoreStage.setTitle("High-score");
-			highScoreStage.setScene(highScoreViewScene);
-			highScoreStage.setResizable(false);
-			highScoreStage.show();
-			((HighScoreController)loader.getController()).loadHighScores();
+			loadAndShowHighScoreWindow();
 		} catch (IOException e) {
 			logger.debug("Can't find/load \"HighscoreView.fxml\" FXML file.");
 			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
-	
+
 	@FXML
 	void undoButton(ActionEvent event){
 		List<GameState> tempSessionList = this.currentGameSession.getGameStateList();
@@ -156,6 +145,19 @@ public class GameViewController {
 			this.score = recalculateScore(tempSessionList, tempSessionList.size());
 			updateLabels();
 		}
+	}
+	
+	private void loadAndShowHighScoreWindow() throws IOException {
+		ClassLoader classLoader = getClass().getClassLoader();
+		FXMLLoader loader = new FXMLLoader(classLoader.getResource("HighscoreView.fxml"));
+		Pane highScoreViewPane = (Pane) loader.load();
+		Scene highScoreViewScene = new Scene(highScoreViewPane);
+		Stage highScoreStage = new Stage();
+		highScoreStage.setTitle("High-score");
+		highScoreStage.setScene(highScoreViewScene);
+		highScoreStage.setResizable(false);
+		highScoreStage.show();
+		((HighScoreController)loader.getController()).loadHighScores();
 	}
     
 	private void processLoading(File loadFile) {
@@ -174,18 +176,18 @@ public class GameViewController {
 	}
 
 	private void updateLabels(){
-    	int[][] valueMatrix = currentGameState.getArrayValue();
-		Integer nextValue = currentGameState.getNextValue();
+    	int[][] boardElements = currentGameState.getBoardElements();
+		Integer nextElement = currentGameState.getNextElement();
     	for (Node child : gridPane.getChildren()) {
 			Integer column = getCorrectIndex(GridPane.getColumnIndex(child));
 			Integer row= getCorrectIndex(GridPane.getRowIndex(child));
 			if (child instanceof Label){
 		    	Label label = (Label) child;
-		    	Integer number = Integer.valueOf(valueMatrix[row][column]);
+		    	Integer number = Integer.valueOf(boardElements[row][column]);
 		    	label.setText(getCorrectStringFromNumber(number));
 		    }
 		}
-		nextLabel.setText(nextValue.toString());
+		nextLabel.setText(nextElement.toString());
 		scoreLabel.setText(score.toString());
 		if(GameStateOperatorPrerequisites.isGameOver(currentGameState)){
 			gameOverLabel.setText("Game Over!");
@@ -198,14 +200,14 @@ public class GameViewController {
     	Integer returnScore = 0;
     	for(int i=0;i<4;i++){
 			for (int j=0;j<4; j++) {
-				returnScore = returnScore.intValue() + gameSessionList.get(0).getArrayValue()[i][j];
+				returnScore = returnScore.intValue() + gameSessionList.get(0).getBoardElements()[i][j];
 			}
 		}
     	for(GameState iteratedGameState : gameSessionList){
     		if (iteratedGameState.equals(gameSessionList.get(sessionLength-1))){
     			break;
     		}
-    		returnScore+= iteratedGameState.getNextValue();
+    		returnScore+= iteratedGameState.getNextElement();
     	}
     	return returnScore;
 	}
@@ -220,7 +222,7 @@ public class GameViewController {
     	score = 0;
     	for(int i=0;i<4;i++){
 			for (int j=0;j<4; j++) {
-				score = score.intValue() + currentGameState.getArrayValue()[i][j];
+				score = score.intValue() + currentGameState.getBoardElements()[i][j];
 			}
 		}
     }
@@ -233,6 +235,14 @@ public class GameViewController {
 			logger.debug(ExceptionUtils.getStackTrace(e));
 		}
 	}
+    
+    private void configureFileChooser(FileChooser fileChooser){
+    	fileChooser.setInitialDirectory(PersistencyManager.saveFolder);
+    	fileChooser.getExtensionFilters().addAll(
+    		new FileChooser.ExtensionFilter("JSON Files", "*.json"),
+    		new FileChooser.ExtensionFilter("All Files", "*")
+    		);
+    }
     
     private int getCorrectIndex(Integer mightBeNull){
     	return (mightBeNull == null) ? 0 

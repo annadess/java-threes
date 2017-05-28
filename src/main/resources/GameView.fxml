@@ -39,7 +39,7 @@
                                  </accelerator>
                               </MenuItem>
                               <SeparatorMenuItem mnemonicParsing="false" />
-                          <MenuItem text="E_xit">
+                          <MenuItem onAction="#exitButton" text="E_xit">
                                  <accelerator>
                                     <KeyCodeCombination alt="DOWN" code="X" control="UP" meta="UP" shift="UP" shortcut="UP" />
                                  </accelerator>

@@ -11,7 +11,7 @@ public class GeneratorTest {
 	@Test
 	public void test() {
 		GameState testGameState = GameStateGenerator.generateGameState();
-		int[][] m = testGameState.getArrayValue();
+		int[][] m = testGameState.getBoardElements();
 		int sum=0;
 		for(int i=0; i<4; i++){
 			for(int j=0;j<4;j++){
@@ -20,6 +20,6 @@ public class GeneratorTest {
 			}
 		}
 		Assert.assertEquals(9, sum);
-		Assert.assertEquals(true, testGameState.getNextValue() > 0 && testGameState.getNextValue() <4);
+		Assert.assertEquals(true, testGameState.getNextElement() > 0 && testGameState.getNextElement() <4);
 	}
 }

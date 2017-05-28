@@ -7,8 +7,8 @@ package annadess.model;
  */
 public class GameState implements Cloneable{
 	
-	private int[][] arrayValue;
-	private int nextValue;
+	private int[][] boardElements;
+	private int nextElement;
 	
 	/**
 	 * Class constructor specified by the {@code gameState} parameter passed.
@@ -17,20 +17,20 @@ public class GameState implements Cloneable{
 	 */
 	public GameState(GameState gameStateVaule) {
 		super();
-		this.arrayValue = gameStateVaule.getArrayValue();
-		this.nextValue = gameStateVaule.getNextValue();
+		this.boardElements = gameStateVaule.getBoardElements();
+		this.nextElement = gameStateVaule.getNextElement();
 	}
 
 	/**
 	 * Class constructor specified by the parameters passed.
 	 * 
-	 * @param matrixValue The matrix which will be used to create the object
-	 * @param nextValue The next number which will appear on the board
+	 * @param matrix The matrix which will be used to create the object
+	 * @param next The next number which will appear on the board
 	 */
-	public GameState(int[][] matrixValue, int nextValue) {
+	public GameState(int[][] matrix, int next) {
 		super();
-		this.arrayValue = matrixValue.clone();
-		this.nextValue = nextValue;
+		this.boardElements = matrix.clone();
+		this.nextElement = next;
 	}
 	
 	/**
@@ -38,17 +38,17 @@ public class GameState implements Cloneable{
 	 */
 	public GameState clone() throws CloneNotSupportedException {
 		super.clone();
-		int newNextValue = 0;
-		int[][] newArrayValue = new int[4][4];
+		int newNextElement = 0;
+		int[][] newMatrix = new int[4][4];
 		
-		newNextValue = this.nextValue;
+		newNextElement = this.nextElement;
 		for(int i=0; i<4; i++){
 			for(int j=0; j<4; j++){
-				newArrayValue[i][j] = this.arrayValue[i][j];
+				newMatrix[i][j] = this.boardElements[i][j];
 			}
 		}
 		
-		return new GameState(newArrayValue, newNextValue);
+		return new GameState(newMatrix, newNextElement);
 	}
 	
 	/**
@@ -56,17 +56,17 @@ public class GameState implements Cloneable{
 	 * 
 	 * @return the next number that will appear on the board
 	 */
-	public int getNextValue() {
-		return nextValue;
+	public int getNextElement() {
+		return nextElement;
 	}
 
 	/**
 	 * Sets a new number that will appear next on the board when it updates. (Using the parameter passed)
 	 * 
-	 * @param nextValue the next number that will appear on the board
+	 * @param nextElement the next number that will appear on the board
 	 */
-	public void setNextValue(int nextValue) {
-		this.nextValue = nextValue;
+	public void setNextElement(int nextElement) {
+		this.nextElement = nextElement;
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class GameState implements Cloneable{
 	 */
 	public GameState() {
 		super();
-		this.arrayValue = new int[4][4];	
+		this.boardElements = new int[4][4];	
 	}
 	
 	/**
@@ -82,17 +82,17 @@ public class GameState implements Cloneable{
 	 * 
 	 * @return the current numbers on the board as a matrix
 	 */
-	public int[][] getArrayValue() {
-		return arrayValue.clone();
+	public int[][] getBoardElements() {
+		return boardElements.clone();
 	}
 
 	/**
 	 * Sets a new matrix as the state of the game board.
 	 * 
-	 * @param arrayValue the new matrix as the state of the game board
+	 * @param boardElements the new matrix as the state of the game board
 	 */
-	public void setArrayValue(int[][] arrayValue) {
-		this.arrayValue = arrayValue.clone();
+	public void setBoardElements(int[][] boardElements) {
+		this.boardElements = boardElements.clone();
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class GameState implements Cloneable{
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(48);
-		int[][] tempMatrix = this.getArrayValue();
+		int[][] tempMatrix = this.getBoardElements();
 		for (int i = 0; i < 4; i++){ 
 			sb.append(tempMatrix[i][0]);
 			for (int j = 1; j < 4; j++) {

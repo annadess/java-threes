@@ -11,8 +11,8 @@ public class GameStateTest {
 	public void test() {
 
 		GameState testGameState = new GameState();
-		Assert.assertArrayEquals(new int[4][4], testGameState.getArrayValue());
-		Assert.assertEquals(0, testGameState.getNextValue());
+		Assert.assertArrayEquals(new int[4][4], testGameState.getBoardElements());
+		Assert.assertEquals(0, testGameState.getNextElement());
 		
 		int[][] m = new int[4][4];
 		for(int i=0;i<4;i++){
@@ -20,26 +20,26 @@ public class GameStateTest {
 				m[i][j]=1;
 			}
 		}
-		testGameState.setArrayValue(m);
-		testGameState.setNextValue(1);
-		Assert.assertArrayEquals(m, testGameState.getArrayValue());
-		Assert.assertEquals(1, testGameState.getNextValue());
+		testGameState.setBoardElements(m);
+		testGameState.setNextElement(1);
+		Assert.assertArrayEquals(m, testGameState.getBoardElements());
+		Assert.assertEquals(1, testGameState.getNextElement());
 		
 		GameState testGameState2 = new GameState(m,1);
-		Assert.assertArrayEquals(testGameState2.getArrayValue(), testGameState.getArrayValue());
-		Assert.assertEquals(testGameState2.getNextValue(), testGameState.getNextValue());
+		Assert.assertArrayEquals(testGameState2.getBoardElements(), testGameState.getBoardElements());
+		Assert.assertEquals(testGameState2.getNextElement(), testGameState.getNextElement());
 		
 		try {
 			testGameState = testGameState2.clone();
-			testGameState2.setNextValue(0);
-			Assert.assertNotEquals(testGameState2.getNextValue(), testGameState.getNextValue());
+			testGameState2.setNextElement(0);
+			Assert.assertNotEquals(testGameState2.getNextElement(), testGameState.getNextElement());
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
 		
 		testGameState = new GameState(testGameState2);
-		testGameState2.setArrayValue(new int[4][4]);
-		Assert.assertNotEquals(testGameState2.getArrayValue(), testGameState.getArrayValue());
+		testGameState2.setBoardElements(new int[4][4]);
+		Assert.assertNotEquals(testGameState2.getBoardElements(), testGameState.getBoardElements());
 	}
 
 }

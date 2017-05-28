@@ -18,10 +18,10 @@ public class JsonManager {
 	
 	public static GameSession getGameSessionFromJson(String jsonString){
 		Gson gsonObject = new Gson();
-		return getGameSessionWithLogging(jsonString, gsonObject);
+		return getGameSession(jsonString, gsonObject);
 	}
 	
-	private static GameSession getGameSessionWithLogging(String jsonString, Gson gsonObject){
+	private static GameSession getGameSession(String jsonString, Gson gsonObject){
 		try {
 			return gsonObject.fromJson(jsonString, GameSession.class);
 		} catch (JsonSyntaxException e) {

@@ -23,17 +23,17 @@ public class PersistencyManager {
 	public static final File saveFolder = new File(new StringBuilder().append(System.getProperty("user.home")).append("/saves").toString());
 	
 	public static String openFromFile(File inputFile){
-		String returnString = null;
 		try (BufferedReader reader =new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));) {
-			returnString = reader.readLine();
+			return reader.readLine();
 		} catch (FileNotFoundException e) {
 			logger.debug("File user tried to load can't be found.");
 			logger.debug(ExceptionUtils.getStackTrace(e));
+			return null;
 		} catch (IOException e) {
 			logger.debug("File user tried to load couldn't be loaded.");
 			logger.debug(ExceptionUtils.getStackTrace(e));
+			return null;
 		}
-		return returnString;
 	}
 	
 	public static void saveToFile(File outputFile, String outputInfo){

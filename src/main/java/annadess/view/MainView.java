@@ -22,27 +22,7 @@ public class MainView extends Application {
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("JavaThrees");
 		try {
-			ClassLoader classLoader = getClass().getClassLoader();
-			FXMLLoader loader = new FXMLLoader(classLoader.getResource("GameView.fxml"));
-			Pane gameViewPane = (Pane) loader.load();
-			GameViewController controller = (GameViewController) loader.getController();
-			Scene gameViewScene = new Scene(gameViewPane);
-			controller.init(primaryStage);
-			gameViewScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-	            @Override
-	            public void handle(KeyEvent event) {
-	                switch (event.getCode()) {
-	                    case UP:    controller.upButton(null); break;
-	                    case DOWN:  controller.downButton(null); break;
-	                    case LEFT:  controller.leftButton(null); break;
-	                    case RIGHT: controller.rightButton(null); break;
-					default:
-						break;
-	                }
-	            }
-	        });
-			gameViewScene.getStylesheets().add(classLoader.getResource("DefaultStyle.css").toExternalForm());
-			primaryStage.setScene(gameViewScene);
+			loadAndShowGameViewWindow(primaryStage);
 		} catch (IOException e) {
 			logger.debug("Can't find/load \"GameView.fxml\" FXML file.");
 			logger.debug(ExceptionUtils.getStackTrace(e));
@@ -54,4 +34,31 @@ public class MainView extends Application {
 		launch(args);
 	}
 
+	private void loadAndShowGameViewWindow(Stage primaryStage) throws IOException {
+		ClassLoader classLoader = getClass().getClassLoader();
+		FXMLLoader gameViewLoader = new FXMLLoader(classLoader.getResource("GameView.fxml"));
+		Pane gameViewPane = (Pane) gameViewLoader.load();
+		Scene gameViewScene = new Scene(gameViewPane);
+		GameViewController gameViewController = (GameViewController) gameViewLoader.getController();
+		gameViewController.init(primaryStage);
+		handleOnKeyPressedFunction(gameViewScene,gameViewController);
+		gameViewScene.getStylesheets().add(classLoader.getResource("DefaultStyle.css").toExternalForm());
+		primaryStage.setScene(gameViewScene);
+	}
+
+	private void handleOnKeyPressedFunction(Scene gameViewScene, GameViewController controller) {
+		gameViewScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case UP:    controller.upButton(null); break;
+                    case DOWN:  controller.downButton(null); break;
+                    case LEFT:  controller.leftButton(null); break;
+                    case RIGHT: controller.rightButton(null); break;
+				default:
+					break;
+                }
+            }
+        });
+	}
 }

@@ -17,7 +17,7 @@ public class GameStateOperatorPrerequisites {
 	 */
 	public static boolean canMoveUp(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=1;i<4;i++){
@@ -46,7 +46,7 @@ public class GameStateOperatorPrerequisites {
 	 */
 	public static boolean canMoveDown(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=2;i>=0;i--){
@@ -75,7 +75,7 @@ public class GameStateOperatorPrerequisites {
 	 */
 	public static boolean canMoveLeft(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=1;i<4;i++){
@@ -104,7 +104,7 @@ public class GameStateOperatorPrerequisites {
 	 */
 	public static boolean canMoveRight(GameState gs){
 		
-		int[][] tempMatrix = gs.getArrayValue();
+		int[][] tempMatrix = gs.getBoardElements();
 		boolean condition;
 		
 		for (int i=2;i>=0;i--){

@@ -23,20 +23,11 @@ public class GameStateGenerator {
 		int[][] returnMatrix = new int[4][4];
 		Random randGen = ThreadLocalRandom.current();
 		
-		for (int i=0; i<9; i++){
-			returnMatrix[i/4][i%4] = randGen.nextInt(3)+1;
-		}
-		
-		for (int i = 15; i > 0; i--){
-			int index = randGen.nextInt(i + 1);
-			// Simple swap
-			int tempInt = returnMatrix[index/4][index%4];
-			returnMatrix[index/4][index%4] = returnMatrix[i/4][i%4];
-			returnMatrix[i/4][i%4] = tempInt;
-		}
+		generateInitialBoard(returnMatrix, randGen);
+		mixBoard(returnMatrix, randGen);
 		
 		GameState gs = new GameState(returnMatrix,0);
-		gs.setNextValue(generateNextValue(gs));
+		gs.setNextElement(generateNextElement(gs));
 		
 		return gs;
 	}
@@ -50,22 +41,48 @@ public class GameStateGenerator {
 	 * @param currentGameState the {@code GameState} object that the returned value depends on
 	 * @return returns a number between 1 to 3
 	 */
-	public static int generateNextValue(GameState currentGameState){
+	public static int generateNextElement(GameState currentGameState){
 		
-		int[][] matrix = currentGameState.getArrayValue();
-		int sum1=0;
-		int sum2=0;
+		int[][] matrix = currentGameState.getBoardElements();
+		int sum1 = sumOnBoard(matrix,1);
+		int sum2 = sumOnBoard(matrix,2);
 		
+		return getRandomNextElement(sum1, sum2);
+		
+	}
+	
+	private static void generateInitialBoard(int[][] returnMatrix, Random randGen){
+		for (int i=0; i<9; i++){
+			returnMatrix[i/4][i%4] = randGen.nextInt(3)+1;
+		}
+	}
+	
+	private static void mixBoard(int[][] returnMatrix, Random randGen){
+		for (int i = 15; i > 0; i--){
+			int randomIndex = randGen.nextInt(i + 1);
+			int randomXIndex = randomIndex/4;
+			int randomYIndex = randomIndex%4;
+			int xIndex = i/4;
+			int yIndex = i%4;
+			int tempInt = returnMatrix[randomXIndex][randomYIndex];
+			returnMatrix[randomXIndex][randomYIndex] = returnMatrix[xIndex][yIndex];
+			returnMatrix[xIndex][yIndex] = tempInt;
+		}
+	}
+	
+	private static int sumOnBoard(int[][] matrix, int numberToCount){
+		int sum = 0;
 		for(int i=0;i<4;i++){
 			for (int j=0;j<4; j++) {
-				if (matrix[i][j] == 1) {
-					sum1++;
-				} else if(matrix[i][j] == 2) {
-					sum2++;
+				if (matrix[i][j] == numberToCount) {
+					sum++;
 				}
 			}
 		}
-		
+		return sum;
+	}
+	
+	private static int getRandomNextElement(int sum1, int sum2){
 		if (sum1 > sum2*3){
 			return 2;
 		}else if(sum2 > sum1*3){
