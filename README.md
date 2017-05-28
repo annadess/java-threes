@@ -2,9 +2,9 @@ Java Threes
 ======
 Description
 -----------
-Java Threes is a simple clone of the original iOS game "Threes" by Sirvo llc.
+Java Threes is a simple clone of the original iOS game "Threes" by Sirvo LLC.
 This application is an assignment for **Programming Technologies** and **Programming Environments** class at the [University of Debrecen, Faculty of Informatics](http://www.inf.unideb.hu/).
-To run the application you need at least java version 1.8 and to copmile and package it yourself you need the JDK and maven installed and configured, so keep that in mind.
+To run the application you need at least java version 1.8 and to compile and package it yourself you need the JDK and maven installed and configured, so keep that in mind.
 
 Expectations
 ------------
