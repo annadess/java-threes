@@ -102,24 +102,4 @@ public class GameState implements Cloneable {
 		this.boardElements = boardElements.clone();
 	}
 
-	/**
-	 * Returns a {@code String} from the object's state. Not used anymore
-	 * anywhere in the actual code.
-	 */
-	@Deprecated
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder(48);
-		int[][] tempMatrix = this.getBoardElements();
-		for (int i = 0; i < 4; i++) {
-			sb.append(tempMatrix[i][0]);
-			for (int j = 1; j < 4; j++) {
-				sb.append(' ');
-				sb.append(tempMatrix[i][j]);
-			}
-			sb.append('\n');
-		}
-		return sb.toString();
-	}
-
 }
