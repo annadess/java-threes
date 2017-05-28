@@ -35,10 +35,6 @@ public class GameViewController {
 	private GameState currentGameState;
 	private Integer score = 0;
 
-	public void init(Stage stage) {
-		this.stage = stage;
-	}
-
 	@FXML
 	private Label gameOverLabel;
 
@@ -50,6 +46,10 @@ public class GameViewController {
 
 	@FXML
 	private GridPane gridPane;
+
+	public void init(Stage stage) {
+		this.stage = stage;
+	}
 
 	@FXML
 	public void downButton(ActionEvent event) {
