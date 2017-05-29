@@ -96,6 +96,7 @@ public class GameViewController {
 		currentGameState = GameStateGenerator.generateGameState();
 		initGameSession();
 		updateLabels();
+		logger.info("A new game has begun.");
 	}
 
 	@FXML
@@ -106,6 +107,9 @@ public class GameViewController {
 		File loadFile = fileChooser.showOpenDialog(stage);
 		if (loadFile != null) {
 			processLoading(loadFile);
+			if(this.currentGameSession!=null){
+				logger.info(new StringBuilder().append("Save file ").append(loadFile.toPath().toString()).append(" has been successfully loaded.").toString());
+			}
 		}
 	}
 
@@ -117,11 +121,13 @@ public class GameViewController {
 		File saveFile = fileChooser.showSaveDialog(stage);
 		if (saveFile != null) {
 			PersistencyManager.saveToFile(saveFile, JsonManager.getJsonFromGameSession(currentGameSession));
+			logger.info(new StringBuilder().append("New save has been successfully created at: ").append(saveFile.toPath().toString()).toString());
 		}
 	}
 
 	@FXML
 	void exitButton(ActionEvent event) {
+		logger.info("Exiting...");
 		Platform.exit();
 	}
 
@@ -144,6 +150,7 @@ public class GameViewController {
 			this.score = 0;
 			this.score = recalculateScore(tempSessionList, tempSessionList.size());
 			updateLabels();
+			logger.info("Latest move undone!");
 		}
 	}
 
@@ -158,6 +165,7 @@ public class GameViewController {
 		highScoreStage.setResizable(false);
 		highScoreStage.show();
 		((HighScoreController) loader.getController()).loadHighScores();
+		logger.info("Opened High-score Window");
 	}
 
 	private void processLoading(File loadFile) {

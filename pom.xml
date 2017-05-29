@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>hu.unideb.inf</groupId>
   <artifactId>java-threes</artifactId>
-  <version>0.0.7</version>
+  <version>0.1.0</version>
   <description>Java Threes is a simple clone of the original iOS game "Threes" by Sirvo llc.</description>
   <developers>
   	<developer>

@@ -1,7 +1,7 @@
 package annadess.model;
 
 /**
- * A model class that represents a current state in the game.
+ * A model class that represents the board's state in the game.
  * 
  * @author annadess
  */
@@ -38,6 +38,11 @@ public class GameState implements Cloneable {
 
 	/**
 	 * Returns a new instance of the {@code GameState} object.
+	 * 
+	 * @throws CloneNotSupportedException
+	 *             when unable to clone the object
+	 * @return a new instance of the {@code GameState} object
+	 * 
 	 */
 	public GameState clone() throws CloneNotSupportedException {
 		super.clone();
@@ -56,7 +61,7 @@ public class GameState implements Cloneable {
 
 	/**
 	 * Returns the next number in line that will appear on the board when it
-	 * updates
+	 * updates.
 	 * 
 	 * @return the next number that will appear on the board
 	 */
