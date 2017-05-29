@@ -32,7 +32,7 @@ Logging:
 - [x] Logging
 
 Unit testing:
-- [ ] JUnit tests
+- [x] JUnit tests
 
 License:
 - [x] Adding license 
