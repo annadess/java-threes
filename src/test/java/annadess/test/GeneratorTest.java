@@ -1,10 +1,11 @@
 package annadess.test;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import annadess.model.GameState;
 import annadess.GameStateGenerator;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GeneratorTest {
 
@@ -19,7 +20,7 @@ public class GeneratorTest {
 					sum++;
 			}
 		}
-		Assert.assertEquals(9, sum);
-		Assert.assertEquals(true, testGameState.getNextElement() > 0 && testGameState.getNextElement() < 4);
+		assertEquals(9, sum);
+		assertEquals(true, testGameState.getNextElement() > 0 && testGameState.getNextElement() < 4);
 	}
 }
