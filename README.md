@@ -54,4 +54,4 @@ You can build a standalone `.jar` application, and run it
 - `$ cd target`
 - `$ java -jar java-threes-X.X.X-jar-with-dependencies.jar` (where x.x.x is the current version number)
 
-Or alternatively you can download the latest executable jar [here](https://annadess.github.io/java-threes/target/java-threes-0.1.0-jar-with-dependencies.jar)
+Or alternatively you can download the latest executable jar [here](https://annadess.github.io/java-threes/target/java-threes-0.1.1-jar-with-dependencies.jar)
