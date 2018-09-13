@@ -1,0 +1,7 @@
+annadess\test\PrerequisiteTest.class
+annadess\test\JsonManagerTest.class
+annadess\test\PersistencyManagerTest.class
+annadess\test\GameSessionTest.class
+annadess\test\OperatorTest.class
+annadess\test\GameStateTest.class
+annadess\test\GeneratorTest.class

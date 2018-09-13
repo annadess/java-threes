@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"annadess.test","l":"GameSessionTest"},{"p":"annadess.test","l":"GameStateTest"},{"p":"annadess.test","l":"GeneratorTest"},{"p":"annadess.test","l":"JsonManagerTest"},{"p":"annadess.test","l":"OperatorTest"},{"p":"annadess.test","l":"PersistencyManagerTest"},{"p":"annadess.test","l":"PrerequisiteTest"}]

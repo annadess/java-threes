@@ -1,0 +1,12 @@
+annadess\view\GameViewController.class
+annadess\GameStateGenerator.class
+annadess\model\GameSession.class
+annadess\GameStateOperator.class
+annadess\view\MainView$1.class
+annadess\model\JsonManager.class
+annadess\model\PersistencyManager.class
+annadess\view\MainView.class
+annadess\model\GameState.class
+annadess\view\MainView$2.class
+annadess\GameStateOperatorPrerequisites.class
+annadess\view\HighScoreController.class

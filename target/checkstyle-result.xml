@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.18">
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\GameStateGenerator.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\GameStateOperator.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\GameStateOperatorPrerequisites.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\model\GameSession.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\model\GameState.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\model\JsonManager.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\model\package-info.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\model\PersistencyManager.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\package-info.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\view\GameViewController.java">
+<error line="30" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="50" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="54" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="64" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="74" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="84" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="207" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\view\HighScoreController.java">
+<error line="16" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="25" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\view\MainView.java">
+<error line="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="33" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\java\annadess\view\package-info.java">
+</file>
+<file name="E:\Projects\Java\java-threes\src\main\resources\tinylog.properties">
+</file>
+</checkstyle>

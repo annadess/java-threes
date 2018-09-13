@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="annadess.test.GameSessionTest" time="0.029" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="10"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="E:\Projects\Java\java-threes\target\test-classes;E:\Projects\Java\java-threes\target\classes;C:\Users\annadess\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.3.0\junit-jupiter-api-5.3.0.jar;C:\Users\annadess\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\annadess\.m2\repository\org\opentest4j\opentest4j\1.1.0\opentest4j-1.1.0.jar;C:\Users\annadess\.m2\repository\org\junit\platform\junit-platform-commons\1.3.0\junit-platform-commons-1.3.0.jar;C:\Users\annadess\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.3.0\junit-jupiter-engine-5.3.0.jar;C:\Users\annadess\.m2\repository\org\junit\platform\junit-platform-engine\1.3.0\junit-platform-engine-1.3.0.jar;C:\Users\annadess\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\annadess\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\annadess\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\annadess\.m2\repository\org\tinylog\slf4j-binding\1.3.5\slf4j-binding-1.3.5.jar;C:\Users\annadess\.m2\repository\org\tinylog\tinylog\1.3.5\tinylog-1.3.5.jar;"/>
+    <property name="java.vm.vendor" value="&quot;Oracle Corporation&quot;"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Prague"/>
+    <property name="user.country.format" value="HU"/>
+    <property name="java.vm.specification.version" value="10"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="E:\Program Files\Java\jdk-10.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\annadess\AppData\Local\Temp\surefire3545487791645926918\surefirebooter8960451958514530179.jar C:\Users\annadess\AppData\Local\Temp\surefire3545487791645926918 2018-09-13T23-03-28_832-jvmRun1 surefire12288273670187421028tmp surefire_04047460590531178599tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="E:\Projects\Java\java-threes\target\test-classes;E:\Projects\Java\java-threes\target\classes;C:\Users\annadess\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.3.0\junit-jupiter-api-5.3.0.jar;C:\Users\annadess\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\annadess\.m2\repository\org\opentest4j\opentest4j\1.1.0\opentest4j-1.1.0.jar;C:\Users\annadess\.m2\repository\org\junit\platform\junit-platform-commons\1.3.0\junit-platform-commons-1.3.0.jar;C:\Users\annadess\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.3.0\junit-jupiter-engine-5.3.0.jar;C:\Users\annadess\.m2\repository\org\junit\platform\junit-platform-engine\1.3.0\junit-platform-engine-1.3.0.jar;C:\Users\annadess\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\annadess\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\annadess\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\annadess\.m2\repository\org\tinylog\slf4j-binding\1.3.5\slf4j-binding-1.3.5.jar;C:\Users\annadess\.m2\repository\org\tinylog\tinylog\1.3.5\tinylog-1.3.5.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\annadess"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-07-17"/>
+    <property name="java.home" value="E:\Program Files\Java\jdk-10.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="E:\Projects\Java\java-threes"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\annadess\AppData\Local\Temp\surefire3545487791645926918\surefirebooter8960451958514530179.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="10.0.2+13"/>
+    <property name="user.name" value="annadess"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.3"/>
+    <property name="localRepository" value="C:\Users\annadess\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\annadess\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2018.2.3"/>
+    <property name="java.version" value="10.0.2"/>
+    <property name="user.dir" value="E:\Projects\Java\java-threes"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="user.language.format" value="hu"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="E:\Program Files\Java\jdk-10.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;E:\Program Files\Git\cmd;C:\Users\annadess\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="10.0.2+13"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="54.0"/>
+  </properties>
+  <testcase name="gameSessionTest" classname="annadess.test.GameSessionTest" time="0.016"/>
+</testsuite>
