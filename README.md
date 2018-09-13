@@ -55,3 +55,9 @@ You can build a standalone `.jar` application, and run it
 - `$ java -jar java-threes-X.X.X-jar-with-dependencies.jar` (where x.x.x is the current version number)
 
 Or alternatively you can download the latest executable jar [here](https://annadess.github.io/java-threes/target/java-threes-0.1.1-jar-with-dependencies.jar)
+
+Additional info
+---------------
+You can also find the generated Maven project report [here](https://annadess.github.io/java-threes/target/site/index.html).
+
+As well as the Javadoc [here](https://annadess.github.io/java-threes/target/site/apidocs/index.html).
