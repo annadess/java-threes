@@ -13,14 +13,15 @@ import annadess.model.PersistencyManager;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PersistencyManagerTest {
 
 	private File savePath = new File(PersistencyManager.saveFolder, "JUnitTestingFile.json");
 	@Test
-	public void test() {
+	public void saveAndLoadTest() {
 		PersistencyManager.createSaveDir();
-		assertEquals(true, PersistencyManager.saveFolder.exists());
+		assertTrue(PersistencyManager.saveFolder.exists());
 		int numOfSaves = PersistencyManager.getAllSaveFiles().size();
 		GameSession initialGameSession = new GameSession(GameStateGenerator.generateGameState());
 		PersistencyManager.saveToFile(savePath, JsonManager.getJsonFromGameSession(initialGameSession));

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OperatorTest {
 
 	@Test
-	public void test() {
+	public void upTest() {
 
 		int[][] m = new int[4][4];
 		m[1][0] = 1;
@@ -29,7 +29,13 @@ public class OperatorTest {
 		GameStateOperator.moveUp(testGameState);
 		assertEquals(6, testGameState.getBoardElements()[0][2]);
 
-		m = new int[4][4];
+	}
+
+	@Test
+	public void downTest() {
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
+
 		testGameState.setBoardElements(new int[4][4]);
 		m[2][0] = 1;
 		testGameState.setBoardElements(m);
@@ -46,7 +52,13 @@ public class OperatorTest {
 		GameStateOperator.moveDown(testGameState);
 		assertEquals(6, testGameState.getBoardElements()[3][2]);
 
-		m = new int[4][4];
+	}
+
+	@Test
+	public void leftTest() {
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
+
 		testGameState.setBoardElements(new int[4][4]);
 		m[0][1] = 1;
 		testGameState.setBoardElements(m);
@@ -62,8 +74,12 @@ public class OperatorTest {
 		m[2][0] = 3;
 		GameStateOperator.moveLeft(testGameState);
 		assertEquals(6, testGameState.getBoardElements()[2][0]);
+	}
 
-		m = new int[4][4];
+	@Test
+	public void rightTest(){
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		testGameState.setBoardElements(new int[4][4]);
 		m[0][2] = 1;
 		testGameState.setBoardElements(m);

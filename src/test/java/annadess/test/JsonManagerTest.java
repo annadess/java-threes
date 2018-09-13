@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class JsonManagerTest {
 	@Test
-	public void test() {
+	public void jsonTest() {
 		GameSession gameSession = new GameSession(GameStateGenerator.generateGameState());
 		assertArrayEquals(gameSession.getGameStateList().get(0).getBoardElements(),
 				JsonManager.getGameSessionFromJson(JsonManager.getJsonFromGameSession(gameSession))

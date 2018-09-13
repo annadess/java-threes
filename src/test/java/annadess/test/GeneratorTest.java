@@ -6,11 +6,12 @@ import annadess.model.GameState;
 import annadess.GameStateGenerator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GeneratorTest {
 
 	@Test
-	public void test() {
+	public void generatorTest() {
 		GameState testGameState = GameStateGenerator.generateGameState();
 		int[][] m = testGameState.getBoardElements();
 		int sum = 0;
@@ -21,6 +22,6 @@ public class GeneratorTest {
 			}
 		}
 		assertEquals(9, sum);
-		assertEquals(true, testGameState.getNextElement() > 0 && testGameState.getNextElement() < 4);
+		assertTrue(testGameState.getNextElement() > 0 && testGameState.getNextElement() < 4);
 	}
 }

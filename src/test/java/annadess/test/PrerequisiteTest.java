@@ -6,115 +6,128 @@ import annadess.model.GameState;
 import annadess.GameStateOperatorPrerequisites;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PrerequisiteTest {
 
 	@Test
-	public void test() {
+	public void upTest() {
 		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		m[1][0] = 1;
-		GameState testGameState;
-		testGameState = new GameState(m, 0);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveUp(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveUp(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[1][1] = 1;
 		m[0][1] = 2;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveUp(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveUp(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[1][2] = 3;
 		m[0][2] = 3;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveUp(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveUp(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		testGameState.setBoardElements(m);
-		assertEquals(false, GameStateOperatorPrerequisites.canMoveUp(testGameState));
+		assertFalse(GameStateOperatorPrerequisites.canMoveUp(testGameState));
+	}
 
-		m = new int[4][4];
-		testGameState.setBoardElements(new int[4][4]);
+	@Test
+	public void downTest() {
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		m[2][0] = 1;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveDown(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveDown(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[2][1] = 1;
 		m[3][1] = 2;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveDown(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveDown(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[2][2] = 3;
 		m[3][2] = 3;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveDown(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveDown(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		testGameState.setBoardElements(m);
-		assertEquals(false, GameStateOperatorPrerequisites.canMoveDown(testGameState));
+		assertFalse(GameStateOperatorPrerequisites.canMoveDown(testGameState));
+	}
 
-		m = new int[4][4];
-		testGameState.setBoardElements(new int[4][4]);
+	@Test
+	public void leftTest() {
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		m[0][1] = 1;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveLeft(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveLeft(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[1][1] = 1;
 		m[1][0] = 2;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveLeft(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveLeft(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[2][1] = 3;
 		m[2][0] = 3;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveLeft(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveLeft(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		testGameState.setBoardElements(m);
-		assertEquals(false, GameStateOperatorPrerequisites.canMoveLeft(testGameState));
+		assertFalse(GameStateOperatorPrerequisites.canMoveLeft(testGameState));
+	}
 
-		m = new int[4][4];
-		testGameState.setBoardElements(new int[4][4]);
+	@Test
+	public void rightTest() {
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		m[0][2] = 1;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveRight(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveRight(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[1][2] = 1;
 		m[1][3] = 2;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveRight(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveRight(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		m[2][2] = 3;
 		m[2][3] = 3;
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.canMoveRight(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.canMoveRight(testGameState));
 
 		m = new int[4][4];
 		testGameState.setBoardElements(new int[4][4]);
 		testGameState.setBoardElements(m);
-		assertEquals(false, GameStateOperatorPrerequisites.canMoveRight(testGameState));
-
-		m = new int[4][4];
+		assertFalse(GameStateOperatorPrerequisites.canMoveRight(testGameState));
+	}
+	@Test
+	public void gameOverTest(){
+		int[][] m = new int[4][4];
+		GameState testGameState = new GameState(m, 0);
 		testGameState.setBoardElements(new int[4][4]);
 		testGameState.setBoardElements(m);
-		assertEquals(true, GameStateOperatorPrerequisites.isGameOver(testGameState));
+		assertTrue(GameStateOperatorPrerequisites.isGameOver(testGameState));
 	}
 
 }

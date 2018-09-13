@@ -22,7 +22,7 @@ public class GameSessionTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(GameSessionTest.class);
 	@Test
-	public void test() {
+	public void gameSessionTest() {
 		GameState initialGameState = GameStateGenerator.generateGameState();
 		try {
 			GameSession testedGameSession = new GameSession(initialGameState.clone());

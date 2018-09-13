@@ -6,6 +6,11 @@ Java Threes is a simple clone of the original iOS game "Threes" by Sirvo LLC.
 This application is an assignment for **Programming Technologies** and **Programming Environments** class at the [University of Debrecen, Faculty of Informatics](http://www.inf.unideb.hu/).
 To run the application you need at least java version 1.8 and to compile and package it yourself you need the JDK and maven installed and configured, so keep that in mind.
 
+How to play
+-----------
+Use the arrow keys on your keyboard to move the numbers on the board. When two compatible numbers collide they create a new number equal to the sum of the two numbers. 
+Compatible numbers include 1 and 2, as well as every pair of equal numbers which are greater or equal to three.
+
 Expectations
 ------------
 Structure:
@@ -16,7 +21,7 @@ Structure:
 Maven-specific:
 - [x] `pom.xml` must have a `description`, `developers`, `scm` and `licenses` tag
 - [x] Indicate source encoding
-- [x] `maven-enforcer-plugin` must check for *JDK 1.8*
+- [x] `maven-enforcer-plugin` must check for *JDK 1.8* (Later versions are also supported)
 - [x] `maven-javadoc-plugin`
 - [x] `maven-surefire-report-plugin` 
 - [x] `maven-jxr-plugin`
